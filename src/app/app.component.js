@@ -6,31 +6,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var Hero = (function () {
-    function Hero() {
-    }
-    return Hero;
-}());
-exports.Hero = Hero;
+var hero_1 = require("./hero");
 var AppComponent = (function () {
     function AppComponent() {
-        // name = 'worlddklfj ';
         this.title = 'Tours of Heroes';
-        // hero = 'windstorm';
-        this.hero = {
-            id: 1,
-            name: 'windstorm'
-        };
-        // const HEROES: Hero[] = [
-        //   { id:11,name: 'Mr. Nice'}
-        // ];
+        // heroes = ['Windstorm','Bombasto','Magneta','Tornado'];
+        this.heroes = [
+            new hero_1.Hero(1, 'windstorm'),
+            new hero_1.Hero(13, 'Bombasto'),
+            new hero_1.Hero(15, 'Magneta'),
+            new hero_1.Hero(20, 'Tornado')
+        ];
+        this.myHero = this.heroes[0];
     }
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n    <h1>{{title}}</h1>\n    <h2>{{hero.name}}details!</h2>\n    <div><label >id:</label>{{hero.id}}</div>\n    <div>\n      <label >name:</label>\n      <input type=\"text\" [(ngModel)]=\"hero.name\" placeholder=\"name\">\n    \n    </div>\n  ",
+        template: "\n    <h1>{{title}}</h1>\n    <h2>my favorite hero is :{{myHero.name}}</h2>\n    <p>Heroes:</p>\n    <ul>\n      <li *ngFor=\"let hero of heroes\">{{hero.name}}</li>\n    </ul>\n    <p *ngIf=\"heroes.length > 3\">there are many  heroes </p>\n  ",
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

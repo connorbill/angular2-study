@@ -1,33 +1,27 @@
 import { Component } from '@angular/core';
-
-export class Hero {
-  id: number;
-  name: string;
-}
+import { Hero } from './hero';
 
 @Component({
   selector: 'my-app',
   template: `
     <h1>{{title}}</h1>
-    <h2>{{hero.name}}details!</h2>
-    <div><label >id:</label>{{hero.id}}</div>
-    <div>
-      <label >name:</label>
-      <input type="text" [(ngModel)]="hero.name" placeholder="name">
-    
-    </div>
+    <h2>my favorite hero is :{{myHero.name}}</h2>
+    <p>Heroes:</p>
+    <ul>
+      <li *ngFor="let hero of heroes">{{hero.name}}</li>
+    </ul>
+    <p *ngIf="heroes.length > 3">there are many  heroes </p>
   `,
 })
-
 export class AppComponent  {
-  // name = 'worlddklfj ';
   title = 'Tours of Heroes';
-  // hero = 'windstorm';
-  hero: Hero = {
-    id: 1,
-    name: 'windstorm'
-  };
-  // const HEROES: Hero[] = [
-  //   { id:11,name: 'Mr. Nice'}
-  // ];
+  // heroes = ['Windstorm','Bombasto','Magneta','Tornado'];
+  heroes = [
+    new Hero(1,'windstorm'),
+    new Hero(13,'Bombasto'),
+    new Hero(15,'Magneta'),
+    new Hero(20,'Tornado')
+  ]
+  myHero = this.heroes[0];
+
 }
