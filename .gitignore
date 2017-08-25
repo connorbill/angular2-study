@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 node_moudles/
+=======
+node_modules/
+.idea/
+>>>>>>> d66d8a1fc50672bc64631786bfe064eefb782358
